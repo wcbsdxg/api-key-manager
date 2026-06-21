@@ -1,0 +1,58 @@
+{
+  "name": "api-key-manager",
+  "version": "1.0.0",
+  "description": "Desktop app for managing API keys with encryption",
+  "main": "main.js",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && node start-electron.js\"",
+    "build": "vite build && electron-builder --win",
+    "start": "node start-electron.js"
+  },
+  "keywords": [
+    "api-key",
+    "manager",
+    "encryption"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.5.0",
+    "concurrently": "^9.2.3",
+    "electron": "^14.0.0",
+    "electron-builder": "^26.15.3",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.19",
+    "vite": "^7.3.5",
+    "wait-on": "^8.0.5"
+  },
+  "build": {
+    "appId": "com.api-key-manager",
+    "productName": "API Key Manager",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "database.js",
+      "start-electron.js",
+      "dist/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
