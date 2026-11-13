@@ -69,7 +69,7 @@ npm run build
 
 - 使用 AES-256-GCM 加密算法
 - PBKDF2 密钥派生（100,000 次迭代）
-- 数据存储在用户数据目录：`%APPDATA%/api-key-manager/`
+- 数据以 JSON 文件存储在用户数据目录：`%APPDATA%/api-key-manager/api-keys.json`
 - 导出的 JSON 文件包含明文密钥，请妥善保管
 
 ## 技术栈
@@ -77,5 +77,5 @@ npm run build
 - Electron - 桌面应用框架
 - React - UI 框架
 - Tailwind CSS - 样式
-- sql.js - SQLite (纯 JS)
+- JSON 文件 - 数据持久化（`api-keys.json`，无需数据库引擎）
 - Node.js crypto - 加密
